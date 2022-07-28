@@ -61,19 +61,14 @@ class _MyHomePageState extends State<MyHomePage> {
             BlocConsumer<StringCubit, StringState>(
               listener: (_, nameState) {
                 if (nameState.isNameCap) {
-                  Scaffold.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text('Name Cap!'),
-                      duration: Duration(milliseconds: 300),
-                    ),
-                  );
+
                 } else {
-                  Scaffold.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text('Small Case!'),
-                      duration: Duration(milliseconds: 300),
-                    ),
-                  );
+                  // Scaffold.of(context).showSnackBar(
+                  //   SnackBar(
+                  //     content: Text('Small Case!'),
+                  //     duration: Duration(milliseconds: 300),
+                  //   ),
+                  // );
                 }
               },
               builder: (_, stringState) {
@@ -133,8 +128,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 FloatingActionButton(
                   heroTag: Text('${widget.title}'),
                   onPressed: () {
-                    BlocProvider.of<CounterCubit>(context).decrement();
+                    // BlocProvider.of<CounterCubit>(context).decrement();
                     // context.bloc<CounterCubit>().decrement();
+                    BlocProvider.of<StringCubit>(context).toCapital();
                   },
                   tooltip: 'Decrement',
                   child: Icon(Icons.remove),
@@ -142,8 +138,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 FloatingActionButton(
                   heroTag: Text('${widget.title} #2'),
                   onPressed: () {
-                    BlocProvider.of<CounterCubit>(context).increment();
+                    // BlocProvider.of<CounterCubit>(context).increment();
                     // context.bloc<CounterCubit>().increment();
+                    BlocProvider.of<StringCubit>(context).toSmall();
                   },
                   tooltip: 'Increment',
                   child: Icon(Icons.add),
