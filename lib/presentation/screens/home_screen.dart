@@ -68,6 +68,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 5,
               ),
               BlocConsumer<CounterCubit, CounterState>(
+                listenWhen: (oldstate, newstate){
+                  print("OldState: ${oldstate}");
+                  print("OldState: ${oldstate.runtimeType}");
+                  print("OldState: ${oldstate.hashCode}");
+                  print("newState: ${newstate}");
+                  print("newState: ${newstate.runtimeType}");
+                  print("newState: ${newstate.hashCode}");
+                  return true;
+                },
                 listener: (counterCubitListenerContext, state) {
                   if (state.wasIncremented == true) {
                     Scaffold.of(counterCubitListenerContext).showSnackBar(
