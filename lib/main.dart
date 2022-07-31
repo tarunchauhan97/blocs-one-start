@@ -1,4 +1,5 @@
 import 'package:blocs_one/logic/cubit/internet_cubit.dart';
+import 'package:blocs_one/logic/cubit/settings_cubit.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
@@ -64,11 +65,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext myAppContext) {
     return MultiBlocProvider(
       providers: [
+
         BlocProvider<InternetCubit>(
           create: (internetCubitContext) => InternetCubit(connectivity: connectivity),
         ),
         BlocProvider<CounterCubit>(
           create: (counterCubitContext) => CounterCubit(),
+        ),
+        BlocProvider<SettingsCubit>(
+          create: (counterCubitContext) => SettingsCubit(),
         ),
       ],
       child: MaterialApp(

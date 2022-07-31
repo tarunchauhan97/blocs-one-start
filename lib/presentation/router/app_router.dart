@@ -1,3 +1,4 @@
+import 'package:blocs_one/presentation/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'package:blocs_one/presentation/screens/home_screen.dart';
@@ -29,6 +30,10 @@ class AppRouter {
             title: "Thirst Screen",
             color: Colors.greenAccent,
           ),
+        );
+      case '/settings':
+        return MaterialPageRoute(
+          builder: (_) => SettingsScreen(),
         );
       default:
         return null;
